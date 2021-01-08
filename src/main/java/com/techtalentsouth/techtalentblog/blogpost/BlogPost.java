@@ -1,5 +1,7 @@
 package com.techtalentsouth.techtalentblog.blogpost;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,15 +18,17 @@ public class BlogPost {
     private String title;
     private String author;
     private String blogEntry;
+    private ArrayList<String> blogTags;
 
     public BlogPost() {
         // empty contructor needed
     }
 
-    public BlogPost(String title, String author, String blogEntry) {
+    public BlogPost(String title, String author, String blogEntry, ArrayList<String> blogTags) {
         this.title = title;
         this.author = author;
         this.blogEntry = blogEntry;
+        this.blogTags = blogTags;
     }
 
     public String getTitle() {
@@ -51,13 +55,22 @@ public class BlogPost {
         this.blogEntry = blogEntry;
     }
 
-    @Override
-    public String toString() {
-        return "BlogPost [id=" + id + ",author=" + author + ", blogEntry=" + blogEntry + ",  title=" + title + "]";
-    }
-
     public Long getId() {
         return id;
+    }
+
+    public ArrayList<String> getBlogTags() {
+        return blogTags;
+    }
+
+    public void setBlogTags(ArrayList<String> blogTags) {
+        this.blogTags = blogTags;
+    }
+
+    @Override
+    public String toString() {
+        return "BlogPost [id=" + id + ",author=" + author + ", blogEntry=" + blogEntry + ",  title=" + title
+                + ", blogTags=" + blogTags + "]";
     }
 
 }
